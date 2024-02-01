@@ -18,6 +18,9 @@ def read_csv(csv_filepath):
         
         print(data)
         # G.add_edge(data[0][1], data[0][2], weight=[0][4])
+        
+        for i in data:
+            G.add_edge(i[1], i[2], weight=i[4])
     
     """
     
