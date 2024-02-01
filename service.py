@@ -12,7 +12,7 @@ def read_csv(csv_filepath):
         reader = csv.reader(file)
         
         # ignoring header 
-        header = next(reader)
+        next(reader)
         
         for row in reader:
             data[row[1]].append((row[2], row[4]))
