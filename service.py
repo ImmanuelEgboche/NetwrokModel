@@ -2,25 +2,25 @@ import csv
 import unittest
 import networkx as nx
 import matplotlib.pyplot as plt
+from collections import defaultdict
 
 def read_csv(csv_filepath):
-    data = []
+    data = defaultdict(list)
+    G = nx.Graph()
+    
     with open(csv_filepath, 'r') as file:
         reader = csv.reader(file)
         
         # ignoring header 
         header = next(reader)
-        print(f"Header: {header}")
         
-        G = nx.Graph()
         for row in reader:
-            data.append(row)
+            data[row[1]].append((row[2], row[4]))
         
-        print(data)
         # G.add_edge(data[0][1], data[0][2], weight=[0][4])
         
-        for i in data:
-            G.add_edge(i[1], i[2], weight=i[4])
+    for node, edges in data.items():
+        G.add_edges_from((node, target, {'weight': int(weight)})for target, weight in edges)
     
     """
     
