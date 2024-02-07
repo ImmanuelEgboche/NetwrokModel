@@ -12,7 +12,17 @@ def dijkstra(graph , source, target):
     visted = set()
     
     while visted != set(graph):
-        current_node
+        # Choosing the node with the smallest distance
+        current_node = min([node for node in graph if node not in visted], key=lambda node: distances[node])
+        
+        visted.add(current_node)
+        
+        for neighbour, weight, in graph[current_node]:
+            if distances[current_node] + weight < distances[neighbour]:
+                distances[neighbour] = distances[current_node] + weight
+                predecessors[neighbour] = current_node
+    # Buliding path to the target 
+        
 
 def read_csv(csv_filepath):
     data = defaultdict(list)
