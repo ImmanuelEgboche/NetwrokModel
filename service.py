@@ -4,6 +4,16 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
+def dijkstra(graph , source, target):
+    distances = {node: float('infinty') for node in graph}
+    predecessors = {node: None for node in graph}
+    distances[source] = 0 
+
+    visted = set()
+    
+    while visted != set(graph):
+        current_node
+
 def read_csv(csv_filepath):
     data = defaultdict(list)
     G = nx.Graph()
@@ -24,9 +34,11 @@ def read_csv(csv_filepath):
     
     """
     
-    [['1', 'A', 'B', '10', '5'], ['2', 'B', 'C', '10', '5'], ['3', 'C', 'D', '10', '5'], ['4', 'D', 'E', '10', '5'], ['5', 'E', 'F', '10', '5'], ['6', 'G', 'H', '10', '5'], ['7', 'H', 'A', '10', '5'], ['8', 'A', 'I', '10', '5'], ['9', 'B', 'I', '10', '1'], ['10', 'C', 'G', '10', '5'], ['11', 'D', 'F', '10', '1'], ['12', 'I', 'G', '10', '5'], ['13', 'F', 'G', '10', '3']]
+    {'A': [('B', '5'), ('I', '5')], 'B': [('C', '5'), ('I', '1')], 'C': [('D', '5'), ('G', '5')], 'D': [('E', '5'), ('F', '1')], 'E': [('F', '5')], 'G': [('H', '5')], 'H': [('A', '5')], 'I': [('G', '5')], 'F': [('G', '3')]}
     
     """
+    
+    print(data)
     
     
     
@@ -44,21 +56,17 @@ class TestReadCsvFile(unittest.TestCase):
     def test_read_Csv(self):
         csv_file = "network.csv" # path to csv file
         data = read_csv(csv_file)
-        expected_ans =  [
-    ['1', 'A', 'B', '10', '5'],
-    ['2', 'B', 'C', '10', '5'],
-    ['3', 'C', 'D', '10', '5'],
-    ['4', 'D', 'E', '10', '5'],
-    ['5', 'E', 'F', '10', '5'],
-    ['6', 'G', 'H', '10', '5'],
-    ['7', 'H', 'A', '10', '5'],
-    ['8', 'A', 'I', '10', '5'],
-    ['9', 'B', 'I', '10', '1'],
-    ['10', 'C', 'G', '10', '5'],
-    ['11', 'D', 'F', '10', '1'],
-    ['12', 'I', 'G', '10', '5'],
-    ['13', 'F', 'G', '10', '3']
-]
+        expected_ans =      {
+            'A': [('B', '5'), ('I', '5')], 
+            'B': [('C', '5'), ('I', '1')], 
+            'C': [('D', '5'), ('G', '5')], 
+            'D': [('E', '5'), ('F', '1')], 
+            'E': [('F', '5')], 
+            'G': [('H', '5')], 
+            'H': [('A', '5')], 
+            'I': [('G', '5')], 
+            'F': [('G', '3')]
+            }
         self.assertEqual(data, expected_ans)
         
 if __name__ == '__main__':
