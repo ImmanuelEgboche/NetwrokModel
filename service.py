@@ -5,11 +5,15 @@ import matplotlib.pyplot as plt
 from collections import defaultdict
 
 
+"""
+NEED TO HAVE  A COLOR FOR EACH EDGE DEPENDING ON CAPACITY
 
 
-# info = {[('A', [('B', '5'), ('I', '5')]), ('B', [('C', '5'), ('I', '1')]), ('C', [('D', '5'), ('G', '5')]), 
-# ('D', [('E', '5'), ('F', '1')]), ('E', [('F', '5')]), 
-# ('G', [('H', '5')]), ('H', [('A', '5')]), ('I', [('G', '5')]), ('F', [('G', '3')])]}
+ALSO NEED TO ADD WORST CASE SCEERINO ON PATH
+
+"""
+
+
 
 
 
